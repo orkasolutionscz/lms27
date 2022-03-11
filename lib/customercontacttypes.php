@@ -316,6 +316,10 @@ $CUSTOMERCONTACTTYPES = array(
                     'label' => $CONTACTTYPES[CONTACT_INVOICES],
                     'tip' => trans('Check if bank account should be visible on invoice'),
                 ),
+                CONTACT_SRCACCOUNT => array(
+                    'label' => $CONTACTTYPES[CONTACT_SRCACCOUNT],
+                    'tip' => trans('Check if bank account is customer source account'),
+                ),
                 CONTACT_DISABLED => array(
                     'label' => $CONTACTTYPES[CONTACT_DISABLED],
                     'tip' => trans('Check if bank account should be disabled'),
