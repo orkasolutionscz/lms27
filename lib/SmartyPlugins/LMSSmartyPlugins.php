@@ -225,7 +225,7 @@ class LMSSmartyPlugins
         $customername = !isset($params['customername']) || $params['customername'];
 
         $form = isset($params['form']) ? $params['form'] : null;
-        $firstoption = $params['firstoption'] ?? 'Select customer';
+        $firstoption = $params['firstoption'] ?? 'select customer';
 
         if (isset($params['selected']) && !preg_match('/^[0-9]+$/', $params['selected'])) {
             $params['selected'] = '';
@@ -248,13 +248,13 @@ class LMSSmartyPlugins
             if (!empty($params['selecttip'])) {
                 $result .= ' ' . self::tipFunction(array('text' => $params['selecttip']), $template);
             } else {
-                $result .= ' ' . self::tipFunction(array('text' => $firstoption), $template);
+                $result .= ' ' . self::tipFunction(array('text' => $firstoption . (empty($required) ? null : '(optional)')), $template);
             }
 
             $result .= '">' . PHP_EOL;
 
             $result .= '<option value="0"' . (empty($params['selected']) ? ' selected' : null). '>'
-                . trans($firstoption) . '</option>';
+                . trans('-' . $firstoption . '-') . '</option>';
 
             foreach ($params['customers'] as $customer) {
                 $result .= '<option value="' . $customer['id'] . '"';
